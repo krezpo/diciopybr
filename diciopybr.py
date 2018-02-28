@@ -15,8 +15,8 @@ class Termos:
         '''
         Retorna a lista de sinonimos de um determinado termo.
 
-        :param termo:
-        :return list:sinonimos
+        :param termo:string
+        :return sinonimos:list
         '''
         url       = self.url_sinonimos + "{}/".format(termo)
         html      = requests.get(url).text
@@ -38,8 +38,8 @@ class Termos:
         '''
         Retorna a lista de antonimos de um dado termo.
 
-        :param termo:
-        :return list:antonimos
+        :param termo:string
+        :return antonimos:list
         '''
 
         url       = self.url_antonimos + "{}/".format(termo)
@@ -59,8 +59,8 @@ class Termos:
         '''
         Retorna a lista de sentidos de um determinado termo.
 
-        :param termo:
-        :return list:sentidos
+        :param termo:string
+        :return sentidos:list
         '''
 
         url      = self.url_sinonimos + "{}/".format(termo)
