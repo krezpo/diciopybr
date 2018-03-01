@@ -25,12 +25,10 @@ class Termos:
         sinonimos = []
 
         for div in soup.find_all('a'):
-            d     = str(div).replace("</a>", "")
-            start = d.find(">") + 1
-            sinonimos.append(d[start:])
+            sinonimos.append(div.get_text())
 
         for div in soup.find_all('span'):
-            sinonimos.append(str(div).replace("<span>", "").replace("</span>", ""))
+            sinonimos.append(div.get_text())
 
         return sinonimos
 
@@ -49,9 +47,7 @@ class Termos:
         antonimos = []
 
         for div in soup.find_all('a'):
-            d     = str(div).replace("</a>", "")
-            start = d.find(">") + 1
-            antonimos.append(d[start:])
+            antonimos.append(div.get_text())
 
         return antonimos
 
@@ -71,6 +67,6 @@ class Termos:
 
         for s in soup:
             if isinstance(s, Tag):
-                sentidos.append(str(s).replace('<div class="sentido">', "").replace(":</div>", ""))
+                sentidos.append(s.get_text())
 
         return sentidos
