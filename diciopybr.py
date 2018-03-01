@@ -39,7 +39,6 @@ class Termos:
         :param termo:string
         :return antonimos:list
         '''
-
         url       = self.url_antonimos + "{}/".format(termo)
         html      = requests.get(url).text
         soup      = BeautifulSoup(html, 'html.parser')
@@ -58,7 +57,6 @@ class Termos:
         :param termo:string
         :return sentidos:list
         '''
-
         url      = self.url_sinonimos + "{}/".format(termo)
         html     = requests.get(url).text
         soup     = BeautifulSoup(html, 'html.parser')
@@ -67,6 +65,6 @@ class Termos:
 
         for s in soup:
             if isinstance(s, Tag):
-                sentidos.append(s.get_text())
+                sentidos.append(s.get_text()[:-1])
 
         return sentidos
